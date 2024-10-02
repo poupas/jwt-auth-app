@@ -20,7 +20,7 @@ func LoadSecretKey(path string) ([]byte, error) {
 	return os.ReadFile(path)
 }
 
-// JWTAuthMiddleware validates JWT tokens and protects routes.
+// JWTAuthMiddleware validates JWT and protects routes.
 func JWTAuthMiddleware(secretKey []byte, next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Retrieve the Authorization header.
